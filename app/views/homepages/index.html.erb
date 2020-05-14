@@ -1,0 +1,43 @@
+<%# copied from class example %>
+<section class="spotlight">
+
+    <h2 class="spotlight_header">
+        <span class="spotlight__header--prefix">
+            Media Spotlight:
+        </span>
+        <span><%= Work.first.title %></span> <%# add creator name %>   
+    </h2>
+    <p class="spotlight__description">
+        <%# add votes count and category %>
+    </p>
+
+</section>
+
+<hr class="root_hr">
+
+<section class="top-ten__container">
+    <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+            Top Movies
+        </h2>
+        <ul class="list-group top-ten__list">
+            <%# top ten go here %>
+        </ul>
+    </section>
+    <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+            Top Books
+        </h2>
+        <ul class="list-group top-ten__list">
+            <%# top ten go here %>
+        </ul>
+    </section>
+    <section class="top-ten__list-container">
+        <h2 class="top-ten__header">
+            Top Albums
+        </h2>
+        <ul class="list-group top-ten__list">
+            <%# top ten go here %>
+        </ul>
+    </section>
+</section>
