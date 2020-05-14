@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'
+
+users = [
+    {username: "Yoyo"},
+    {username: "Cat"},
+    {username: "Dog"},
+    {username: "Fish"},
+    {username: "Pizza"},
+    {username: "Cake"}
+]
+
+users.each do |user|
+    User.create(user)
+end
+
+WORKS_FILE = Rails.root.join('db', 'works-seeds.csv')
+puts "Loading raw work data from #{WORKS_FILE}"
+
+works_failures = []
+CSV.foreach(WORKS_FILE, :headers => true) do |row|
+    work = Work.new
+    work.category = row['category']
+    work.title = row['title']
+    work.creator = row['creator']
+    work.year = row['year']
+    work.description = row['description']
+    work.votes = row['votes']
+    if !successful
+        work_failures << work
+        puts "Failed to save work: #{work.inspect}"
+    else
+        puts "Created work: #{driver.inspect}"
+    end
+end
+
+puts "Added #{Work.count} work records"
+puts "#{work_failures.length} works failed to save"
+
+puts "done"
