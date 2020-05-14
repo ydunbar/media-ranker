@@ -1,14 +1,15 @@
-<%# copied from class example %>
+<!-- copied from class example -->
 <section class="spotlight">
 
     <h2 class="spotlight_header">
         <span class="spotlight__header--prefix">
             Media Spotlight:
         </span>
-        <span><%= Work.first.title %></span> <%# add creator name %>   
+        <span><%= link_to Work.first.title, work_path(Work.first) %></span> <%# add creator name %>   
     </h2>
     <p class="spotlight__description">
         <%# add votes count and category %>
+        <%= Work.first.category %>
     </p>
 
 </section>
@@ -21,7 +22,7 @@
             Top Movies
         </h2>
         <ul class="list-group top-ten__list">
-            <%# top ten go here %>
+            <%# top ten movies go here %>
         </ul>
     </section>
     <section class="top-ten__list-container">
@@ -29,7 +30,7 @@
             Top Books
         </h2>
         <ul class="list-group top-ten__list">
-            <%# top ten go here %>
+            <%# top ten books go here %>
         </ul>
     </section>
     <section class="top-ten__list-container">
@@ -37,7 +38,7 @@
             Top Albums
         </h2>
         <ul class="list-group top-ten__list">
-            <%# top ten go here %>
+            <%# top ten albums go here %>
         </ul>
     </section>
 </section>
