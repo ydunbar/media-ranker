@@ -32,12 +32,12 @@ CSV.foreach(WORKS_FILE, :headers => true) do |row|
     work.creator = row['creator']
     work.year = row['year']
     work.description = row['description']
-    work.votes = row['votes']
+    successful = work.save
     if !successful
-        work_failures << work
+        works_failures << work
         puts "Failed to save work: #{work.inspect}"
     else
-        puts "Created work: #{driver.inspect}"
+        puts "Created work: #{work.inspect}"
     end
 end
 
