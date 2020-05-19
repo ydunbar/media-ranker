@@ -23,6 +23,14 @@
         </h2>
         <ul class="list-group top-ten__list">
             <%# top ten movies go here %>
+            <% movies = Work.where(category: "movie")%>
+            <% movies.each do |work|%>
+                <li>
+                    <%= work[:title] %>
+                    <%= work[:creator] %>
+                    <%= work[:year] %>
+                </li>
+            <% end %>
         </ul>
     </section>
     <section class="top-ten__list-container">
@@ -31,6 +39,14 @@
         </h2>
         <ul class="list-group top-ten__list">
             <%# top ten books go here %>
+            <% books = Work.where(category: "book")%>
+            <% books.each do |work|%>
+                <li>
+                    <%= work[:title] %>
+                    <%= work[:creator] %>
+                    <%= work[:year] %>
+                </li>
+            <% end %>
         </ul>
     </section>
     <section class="top-ten__list-container">
@@ -39,6 +55,14 @@
         </h2>
         <ul class="list-group top-ten__list">
             <%# top ten albums go here %>
+            <% albums = Work.where(category: "album")%>
+            <% albums.each do |work|%>
+                <li>
+                    <%= work[:title] %>
+                    <%= work[:creator] %>
+                    <%= work[:year] %>
+                </li>
+            <% end %>
         </ul>
     </section>
 </section>
