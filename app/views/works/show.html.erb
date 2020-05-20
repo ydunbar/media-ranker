@@ -1,2 +1,18 @@
-<h1><%= @work.category %></h1>
+<section>
 <h2><%= @work.title %></h2>
+<p>Created by: <%= @work.creator %></p>
+<p>Published: <%= @work.year %> </p>
+<p><%= @work.description %></p>
+</section>
+
+<section>
+    <%# buttons here; a class="btn btn-primary" %>
+    <%= link_to 'Back to media ranks', root_path %>
+    <%# Edit %>
+    <%# Upvote %>
+    <%# Delete %>
+</section>
+
+<section class="works-votes__container">
+    <%# Votes and Users who voted%>
+</section>
