@@ -5,9 +5,9 @@
     <% albums = Work.where(category: "album")%>
     <% albums.each do |work|%>
         <li>
-            <%= work[:title] %>
-            <%= work[:creator] %>
-            <%= work[:year] %>
+            <%= link_to work.title, work_path(work.id) %>
+            <%= work.creator %>
+            <%= work.year %>
         </li>
     <% end %>
 </ul>
@@ -17,9 +17,9 @@
     <% books = Work.where(category: "book")%>
     <% books.each do |work|%>
         <li>
-            <%= work[:title] %>
-            <%= work[:creator] %>
-            <%= work[:year] %>
+            <%= link_to work.title, work_path(work.id) %>
+            <%= work.creator %>
+            <%= work.year %>
         </li>
     <% end %>
 </ul>
@@ -29,9 +29,9 @@
     <% movies = Work.where(category: "movie")%>
     <% movies.each do |work|%>
         <li>
-            <%= work[:title] %>
-            <%= work[:creator] %>
-            <%= work[:year] %>
+            <%= link_to work.title, work_path(work.id) %>
+            <%= work.creator %>
+            <%= work.year %>
         </li>
     <% end %>
 </ul>
