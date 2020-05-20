@@ -2,6 +2,15 @@ class Work < ApplicationRecord
 
     def self.spotlight
         @works = Work.all
+        if @works.length == 0 # if no votes
+            return Work.create(
+                category: "TBD", 
+                title: "TBD", 
+                creator: "TBD", 
+                year: "TBD", 
+                description: "TBD"
+            )
+        end
         top_voted = @works[0] # .max_by votes
     end
 
