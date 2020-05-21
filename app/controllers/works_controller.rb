@@ -6,7 +6,6 @@ class WorksController < ApplicationController
     def show
         work_id = params[:id]
         @work = Work.find_by(id: work_id)
-
         if @work.nil?
             head :not_found
             return
@@ -29,12 +28,37 @@ class WorksController < ApplicationController
     end
 
     def edit
+        @work = Work.find_by(id: params[:id])
+        if @work.nil?
+        head :not_found
+        return
+        end
     end
 
     def update
+        @work = Work.find_by(id: params[:id])
+        if @work.nil?
+            head :not_found
+            return
+        elsif @work.update(work_params)
+            redirect_to works_path
+            return
+        else # save failed :(
+            render :edit
+            return
+        end
     end
 
     def destroy
+        work_id = params[:id]
+        @work = Work.find_by(id: work_id)
+        if @work.nil?
+            head :not_found
+            return
+        end
+        @work.destroy
+        redirect_to works_path
+        return
     end
 
     private
