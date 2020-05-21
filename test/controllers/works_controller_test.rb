@@ -4,6 +4,7 @@ describe WorksController do
 
   describe "index" do
     it "should get index" do
+      # TODO: does it get index if there are 0 works?
       get "/works"
       must_respond_with :success
     end
