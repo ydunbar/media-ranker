@@ -1,22 +1,8 @@
 class VotesController < ApplicationController
-    def index
-    end
-
-    def show
-    end
-
-    def new
-    end
 
     def create
+        @vote = Vote.new(work_id: params[:work_id],user_id: session[:user_id])
+        
     end
 
-    def edit
-    end
-
-    def update
-    end
-
-    def destroy
-    end
 end
