@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
     def create
-        @vote = Vote.new(work_id: params[:work_id],user_id: session[:user_id])
+        @vote = Vote.create(work_id: params[:id],user_id: session[:user_id])
         if session[:user_id] && @vote.valid?
             @vote.save
         elsif @vote.valid? == false

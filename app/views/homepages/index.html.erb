@@ -5,10 +5,10 @@
         <span class="spotlight__header--prefix">
             Media Spotlight:
         </span>
-        <span><%= link_to Work.spotlight.title, work_path(Work.spotlight) %></span> <%# add creator name %>   
+        <span><%= link_to Work.spotlight.title, work_path(Work.spotlight.id) %></span> <%# add creator name %>   
     </h2>
     <p class="spotlight__description">
-        <%# add votes count and category %>
+        <%= Work.spotlight.votes.length %> votes - Description: <%= Work.spotlight.description %>
         <%= Work.spotlight.category %>
     </p>
 
