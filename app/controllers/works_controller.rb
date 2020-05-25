@@ -14,9 +14,11 @@ class WorksController < ApplicationController
     def create
         @work = Work.new(work_params)
         if @work.save
-            redirect_to root_path
+            redirect_to work_path(@work)
+            flash[:success] = "Successfully created #{@work.category} #{@work.id}"
         else
             render :new # show new work form again
+            flash[:warning] = "A problem occurred: Could not create #{@work.category}"
         end
     end
 
@@ -25,14 +27,17 @@ class WorksController < ApplicationController
     def update
         if @work.update(work_params)
             redirect_to works_path
+            flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
         else # save failed :(
             render :edit
+            flash[:warning] = "A problem occurred: Could not update #{@work.category}"
         end
     end
 
     def destroy
         @work.destroy
-        redirect_to works_path
+        redirect_to root_path
+        flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
     end
 
     private
