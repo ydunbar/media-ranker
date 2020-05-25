@@ -18,7 +18,7 @@ class WorksController < ApplicationController
             flash[:success] = "Successfully created #{@work.category} #{@work.id}"
         else
             render :new # show new work form again
-            flash[:warning] = "A problem occurred: Could not create #{@work.category}"
+            flash.now[:warning] = "A problem occurred: Could not create #{@work.category}"
         end
     end
 
@@ -30,7 +30,7 @@ class WorksController < ApplicationController
             flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
         else # save failed :(
             render :edit
-            flash[:warning] = "A problem occurred: Could not update #{@work.category}"
+            flash.now[:warning] = "A problem occurred: Could not update #{@work.category}"
         end
     end
 
