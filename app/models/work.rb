@@ -6,15 +6,6 @@ class Work < ApplicationRecord
 
     def self.spotlight
         @works = Work.all
-        # if @works.each.votes.count == 0 # if no votes
-        #     return Work.create(
-        #         category: "TBD", 
-        #         title: "TBD", 
-        #         creator: "TBD", 
-        #         year: "TBD", 
-        #         description: "TBD"
-        #     )
-        # end
 
         top_voted = @works.max_by { |work| work.votes.count }
         return top_voted
@@ -28,6 +19,12 @@ class Work < ApplicationRecord
         else
             return top_media[0..9]
         end
+    end
+
+    def self.sorted
+        @works = Work.all
+        sorted_works = @works.sort_by { |work| work.votes.count }.reverse
+        return sorted_works
     end
 
 end
