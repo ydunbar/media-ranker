@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>  
-        <% @users.each do |user|%>
+        <% @users.sorted.each do |user|%>
             <tr>
                 <td>
                     <%= link_to "#{user.username}", user_path(user.id) %>
